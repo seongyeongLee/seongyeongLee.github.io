@@ -1,125 +1,62 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Reports Hub</title>
-    <link rel="stylesheet" href="assets/styles.css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>보고서 허브</title>
+    <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <main>
+    <main class="page">
       <section class="hero">
-        <span class="eyebrow">GitHub Pages Static Hub</span>
-        <h1>reports/ 보고서 허브</h1>
+        <h1>Git 업로드 준비 보고서 허브</h1>
+        <div class="badge-row">
+          <span class="badge status-warning">상태: 부분 성공</span>
+          <span class="badge status-danger">확인 여부: 미확인</span>
+          <span class="badge status-info">기준 시각: 2026-05-19 13:25 KST</span>
+        </div>
         <p>
-          검증 보고서, 수정 보고서, 외부 참조 보고서를 한 곳에서 읽을 수 있도록 정리한 정적
-          허브입니다. 상태와 확인 여부를 모든 카테고리에서 같은 규칙으로 보여주고, 실패
-          보고서는 더 강한 대비로 바로 식별되게 구성했습니다.
+          수정 파일과 보고서 세트를 Git 저장소에 올릴 수 있도록 정리한 결과입니다.
+          작업 내역, 수정 보고, 진단 보고는 준비되었고, 원본 보고서 파일은 현재 작업
+          공간에 없어 포함 위치만 먼저 마련했습니다.
         </p>
       </section>
 
-      <section class="section grid three">
-        <a class="card card-link report-card status-success" href="validation/index.html">
-          <div class="kicker">Category</div>
-          <h2>Validation Reports</h2>
-          <p>연결 확인, 접근 검증, 실행 점검처럼 현재 상태를 확인하는 결과를 모아보는 영역입니다.</p>
-          <div class="meta">
-            <span class="badge success">성공 2건</span>
-            <span class="badge review-pending">미확인 2건</span>
-            <span class="badge neutral">상세 페이지 포함</span>
+      <section class="panel">
+        <h2>요약 대시보드</h2>
+        <div class="grid">
+          <div class="metric">
+            <strong>4</strong>
+            <span>준비된 보고서</span>
           </div>
-        </a>
-
-        <a class="card card-link report-card status-success" href="changes/index.html">
-          <div class="kicker">Category</div>
-          <h2>Change Reports</h2>
-          <p>코드, 설정, 문서, 배포 구조 변경처럼 실제 수정 작업의 이력과 영향 범위를 보여줍니다.</p>
-          <div class="meta">
-            <span class="badge success">성공 2건</span>
-            <span class="badge review-pending">미확인 2건</span>
-            <span class="badge neutral">변경 추적 가능</span>
+          <div class="metric">
+            <strong>1</strong>
+            <span>원본 보고서 대기 항목</span>
           </div>
-        </a>
-
-        <a class="card card-link report-card status-failure" href="external-references/index.html">
-          <div class="kicker">Category</div>
-          <h2>External References</h2>
-          <p>외부에서 받은 참고 보고서와 전달 자료를 별도 카테고리로 분리해 상태와 확인 여부를 관리합니다.</p>
-          <div class="meta">
-            <span class="badge failed">실패 1건</span>
-            <span class="badge review-pending">미확인 1건</span>
-            <span class="badge reference">참고용 원문 보존</span>
+          <div class="metric">
+            <strong>4</strong>
+            <span>생성된 인덱스 페이지</span>
           </div>
-        </a>
-      </section>
-
-      <section class="section banner status-failure">
-        <div class="kicker">Attention</div>
-        <h2>미확인 실패 보고서 있음</h2>
-        <p>
-          외부 참조 카테고리에 강한 대비로 표시된 실패 분석 보고서가 남아 있습니다.
-          허브 첫 화면에서도 즉시 보이도록 요약 배지를 유지했습니다.
-        </p>
-        <div class="meta">
-          <span class="badge failed">실패</span>
-          <span class="badge review-pending">미확인</span>
-          <span class="badge neutral">external-references</span>
         </div>
       </section>
 
-      <section class="section card">
-        <div class="kicker">Latest Preview</div>
-        <h2>최신 보고서 미리보기</h2>
-        <p class="section-lead">최근 반영한 검증, 수정, 외부 참조 보고서를 한눈에 볼 수 있도록 정리했습니다.</p>
-        <div class="list" style="margin-top: 20px">
-          <a class="list-item report-card status-success" href="validation/2026-05-19/report-status-ui-refresh-check/index.html">
-            <div class="item-meta">
-              <span class="badge success">성공</span>
-              <span class="badge review-pending">미확인</span>
-              <span class="badge neutral">검증 보고</span>
-              <span class="badge neutral">2026-05-19</span>
-            </div>
-            <h3>Report Status UI Refresh Check</h3>
-            <p>
-              상태 배지, 실패 강조 스타일, 확인 여부 배지, 카테고리 인덱스 연결 상태를 점검한
-              이번 작업의 검증 보고서입니다.
-            </p>
-          </a>
-
-          <a class="list-item report-card status-success" href="changes/2026-05-19/report-status-ui-refresh/index.html">
-            <div class="item-meta">
-              <span class="badge success">성공</span>
-              <span class="badge review-pending">미확인</span>
-              <span class="badge neutral">수정 보고</span>
-              <span class="badge neutral">2026-05-19</span>
-            </div>
-            <h3>Report Status UI Refresh</h3>
-            <p>
-              보고서 허브 전반에 상태 색상 체계와 미확인 표시를 도입하고, 외부 참조 카테고리를
-              새로 연결한 수정 보고서입니다.
-            </p>
-          </a>
-
-          <a class="list-item report-card status-failure" href="external-references/2026-05-19/preview-failure-report/index.html">
-            <div class="item-meta">
-              <span class="badge failed">실패</span>
-              <span class="badge review-pending">미확인</span>
-              <span class="badge reference">외부 참조</span>
-              <span class="badge neutral">2026-05-19</span>
-            </div>
-            <h3>미리보기 실패 분석 보고서</h3>
-            <p>
-              잘못된 GitHub 해석으로 실패 안내가 생성된 경위를 정리한 참고 보고서입니다. 실패
-              항목이어서 허브와 인덱스에서 더 강한 대비로 보이게 정리했습니다.
-            </p>
-          </a>
+      <section class="panel">
+        <h2>카테고리</h2>
+        <div class="report-list">
+          <article class="report-card">
+            <h3><a href="./changes/index.html">수정 보고서</a></h3>
+            <p>이번 작업에서 준비한 변경 목적, 영향 범위, 업로드 대상 구성을 확인합니다.</p>
+          </article>
+          <article class="report-card">
+            <h3><a href="./validation/index.html">진단 보고서</a></h3>
+            <p>원본 보고서 부재, Git 저장소 미연결 상태, 파일 구조 준비 결과를 진단합니다.</p>
+          </article>
+          <article class="report-card">
+            <h3><a href="./external-references/index.html">외부 참조 보고서</a></h3>
+            <p>사용자 첨부 원본 보고서가 들어올 자리와 연결 상태를 정리합니다.</p>
+          </article>
         </div>
       </section>
-
-      <p class="footer-note">
-        모든 페이지는 상대 링크 기준으로 연결되어 있어 GitHub 저장소 보기와 GitHub Pages 공개 경로에서
-        모두 같은 흐름으로 탐색할 수 있습니다.
-      </p>
     </main>
   </body>
 </html>
