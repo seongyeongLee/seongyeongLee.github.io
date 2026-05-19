@@ -1,0 +1,274 @@
+:root {
+  --bg: #f4f6f8;
+  --panel: #ffffff;
+  --panel-soft: #eef3f7;
+  --text: #16202a;
+  --muted: #5f6b76;
+  --line: #d7dfe6;
+  --accent: #0f766e;
+  --accent-strong: #115e59;
+  --success-bg: #dff6ea;
+  --success-text: #13653f;
+  --empty-bg: #f8fafc;
+  --shadow: 0 16px 40px rgba(22, 32, 42, 0.08);
+  --radius: 18px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", "Noto Sans KR", sans-serif;
+  background: linear-gradient(180deg, #f7fafc 0%, #f1f5f9 100%);
+  color: var(--text);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+main {
+  width: min(1100px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 48px 0 72px;
+}
+
+.hero {
+  background: linear-gradient(135deg, #0f172a 0%, #164e63 100%);
+  color: #f8fafc;
+  border-radius: 28px;
+  padding: 36px;
+  box-shadow: var(--shadow);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.hero h1,
+.page-header h1 {
+  margin: 18px 0 12px;
+  font-size: clamp(2rem, 3vw, 3.2rem);
+  line-height: 1.1;
+}
+
+.hero p,
+.page-header p,
+.section-lead {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.hero p {
+  color: rgba(248, 250, 252, 0.84);
+  max-width: 760px;
+}
+
+.page-header {
+  margin-bottom: 28px;
+}
+
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.breadcrumbs a {
+  color: var(--accent-strong);
+  font-weight: 700;
+}
+
+.grid {
+  display: grid;
+  gap: 20px;
+}
+
+.grid.two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid.three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.section {
+  margin-top: 28px;
+}
+
+.card,
+.list-item,
+.empty-state,
+.stat,
+.detail {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.card,
+.empty-state,
+.detail {
+  padding: 24px;
+}
+
+.card-link,
+.list-item {
+  display: block;
+  padding: 24px;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-link:hover,
+.list-item:hover {
+  transform: translateY(-2px);
+  border-color: rgba(15, 118, 110, 0.36);
+  box-shadow: 0 18px 42px rgba(15, 23, 42, 0.12);
+}
+
+.kicker {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent-strong);
+}
+
+h2,
+h3 {
+  margin: 0 0 12px;
+}
+
+.card h2,
+.card-link h2,
+.list-item h3,
+.detail h3,
+.stat h3 {
+  font-size: 1.2rem;
+}
+
+.meta,
+.item-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 32px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  background: var(--panel-soft);
+  color: var(--text);
+}
+
+.badge.success {
+  background: var(--success-bg);
+  color: var(--success-text);
+}
+
+.badge.neutral {
+  background: #e8eef3;
+  color: #33536a;
+}
+
+.badge.info {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.list {
+  display: grid;
+  gap: 16px;
+}
+
+.list-item p,
+.card p,
+.empty-state p,
+.detail p,
+.detail li,
+.stat p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.summary-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 24px;
+}
+
+.stat {
+  padding: 18px;
+}
+
+.stat strong {
+  display: block;
+  margin-top: 8px;
+  font-size: 1.05rem;
+}
+
+.detail ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.empty-state {
+  background: var(--empty-bg);
+  border-style: dashed;
+}
+
+.footer-note {
+  margin-top: 22px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+@media (max-width: 860px) {
+  .grid.two,
+  .grid.three,
+  .summary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero,
+  .card,
+  .card-link,
+  .list-item,
+  .empty-state,
+  .detail {
+    padding: 22px;
+  }
+
+  main {
+    width: min(100% - 24px, 1100px);
+    padding-top: 24px;
+  }
+}
