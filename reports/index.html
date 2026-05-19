@@ -11,14 +11,14 @@
       <section class="hero">
         <h1>보고서 허브</h1>
         <div class="badge-row">
-          <span class="badge status-warning">최신 상태: 부분 성공</span>
+          <span class="badge status-success">최신 상태: 성공</span>
           <span class="badge status-danger">확인 여부: 미확인</span>
-          <span class="badge status-info">기준 시각: 2026-05-19 14:46 KST</span>
+          <span class="badge status-info">기준 시각: 2026-05-19 15:13 KST</span>
         </div>
         <p>
           GitHub Pages에서 읽을 수 있는 검증 보고서, 변경 보고서, 외부 참조 보고서를 모아둔
-          허브입니다. 최신 작업은 Supabase 스키마 검증이며, 필수 구조 검증은 통과했고
-          별도 개선 권고가 함께 기록되었습니다.
+          허브입니다. 최신 작업은 Supabase CRUD 2차 검증이며, 실제 테스트 데이터 생성부터
+          upsert, 이벤트 기록, 정리까지 다시 확인했습니다.
         </p>
       </section>
 
@@ -30,16 +30,16 @@
             <span>카테고리</span>
           </div>
           <div class="metric">
-            <strong>3</strong>
-            <span>신규 Supabase 보고서</span>
+            <strong>2</strong>
+            <span>신규 CRUD 검증 보고서</span>
           </div>
           <div class="metric">
             <strong>1</strong>
-            <span>신규 변경 보고서</span>
+            <span>신규 반영 보고서</span>
           </div>
           <div class="metric">
-            <strong>1</strong>
-            <span>미확인 경고 보고서</span>
+            <strong>0</strong>
+            <span>이번 검증의 잔여 테스트 row</span>
           </div>
         </div>
       </section>
@@ -53,17 +53,8 @@
               <span class="badge status-danger">미확인</span>
               <span class="badge status-info">2026-05-19</span>
             </div>
-            <h3><a href="./validation/2026-05-19/supabase-schema-validation-results/index.html">Supabase 스키마 검증 결과</a></h3>
-            <p>연결된 프로젝트의 필수 테이블, 컬럼, 제약, 인덱스, RLS 상태를 초안 기준으로 검증한 결과입니다.</p>
-          </article>
-          <article class="report-card">
-            <div class="report-meta">
-              <span class="badge status-warning">부분 성공</span>
-              <span class="badge status-danger">미확인</span>
-              <span class="badge status-info">2026-05-19</span>
-            </div>
-            <h3><a href="./validation/2026-05-19/supabase-schema-validation-findings/index.html">Supabase 스키마 실패 및 경고 항목</a></h3>
-            <p>Supabase advisor 기준으로 확인된 보안 및 성능 개선 포인트를 정리합니다.</p>
+            <h3><a href="./validation/2026-05-19/supabase-crud-revalidation-results/index.html">Supabase CRUD 2차 검증 결과</a></h3>
+            <p>4개 대상 테이블의 조회, insert, update, upsert, 이벤트 기록, 정리 성공 여부를 다시 검증한 결과입니다.</p>
           </article>
           <article class="report-card">
             <div class="report-meta">
@@ -71,7 +62,16 @@
               <span class="badge status-danger">미확인</span>
               <span class="badge status-info">2026-05-19</span>
             </div>
-            <h3><a href="./changes/2026-05-19/supabase-schema-validation-publication/index.html">Supabase 스키마 검증 보고서 반영 내역</a></h3>
+            <h3><a href="./validation/2026-05-19/supabase-crud-revalidation-scenarios/index.html">Supabase CRUD 2차 검증 시나리오</a></h3>
+            <p>고유 테스트 슬러그와 정리 절차를 포함한 재검증 시나리오입니다.</p>
+          </article>
+          <article class="report-card">
+            <div class="report-meta">
+              <span class="badge status-success">성공</span>
+              <span class="badge status-danger">미확인</span>
+              <span class="badge status-info">2026-05-19</span>
+            </div>
+            <h3><a href="./changes/2026-05-19/supabase-crud-revalidation-publication/index.html">Supabase CRUD 2차 검증 보고서 반영 내역</a></h3>
             <p>이번 보고서 세트 생성과 인덱스 갱신 내용을 설명합니다.</p>
           </article>
         </div>
@@ -82,7 +82,7 @@
         <div class="report-list">
           <article class="report-card">
             <h3><a href="./validation/index.html">검증 보고서</a></h3>
-            <p>Supabase 스키마 검증 결과와 이전 진단 기록을 확인합니다.</p>
+            <p>Supabase CRUD 및 스키마 검증 결과와 이전 진단 기록을 확인합니다.</p>
           </article>
           <article class="report-card">
             <h3><a href="./changes/index.html">수정 보고서</a></h3>
