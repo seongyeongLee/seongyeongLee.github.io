@@ -13,9 +13,9 @@
         <div class="badge-row">
           <span class="badge status-warning">상태: 부분 성공</span>
           <span class="badge status-danger">확인 여부: 미확인</span>
-          <span class="badge status-info">대상: 미지정 Git 저장소</span>
+          <span class="badge status-info">대상: seongyeongLee/seongyeongLee.github.io</span>
         </div>
-        <p>수정 파일과 보고서 세트를 Git에 올릴 수 있도록 정적 보고서 구조와 작업 기록을 준비했습니다.</p>
+        <p>수정 파일과 보고서 세트를 GitHub 기본 저장소에 반영하고, 누락된 원본 보고서 자리를 함께 정리했습니다.</p>
       </section>
 
       <section class="detail-card">
@@ -25,13 +25,13 @@
           <tr><th>작업 종류</th><td>수정 보고</td></tr>
           <tr><th>상태</th><td>부분 성공</td></tr>
           <tr><th>중요도</th><td>높음</td></tr>
-          <tr><th>한 줄 요약</th><td>업로드용 보고서 세트는 준비되었고 원본 첨부 보고서만 대기 중입니다.</td></tr>
+          <tr><th>한 줄 요약</th><td>보고서 세트는 업로드 완료되었고 원본 첨부 보고서만 대기 중입니다.</td></tr>
         </table>
       </section>
 
       <section class="detail-card">
         <h2>변경 목적</h2>
-        <p>사용자 요청에 맞춰 수정 파일과 작업 내역, 수정 보고서, 진단 보고서를 Git에 올릴 수 있는 구조로 정리했습니다.</p>
+        <p>사용자 요청에 맞춰 수정 파일과 작업 내역, 수정 보고서, 진단 보고서를 기본 GitHub 저장소에 반영했습니다.</p>
       </section>
 
       <section class="detail-card">
@@ -49,7 +49,7 @@
 
       <section class="detail-card">
         <h2>영향 범위</h2>
-        <p>현재 작업은 로컬 파일 구조 정리에 한정되며, 실제 Git 저장소 반영이나 원격 푸시는 아직 수행하지 않았습니다.</p>
+        <p>현재 작업은 기본 GitHub 저장소의 보고서 구조와 루트 로그 파일에 반영되었습니다. 원본 첨부 보고서만 후속 반영이 필요합니다.</p>
       </section>
 
       <section class="detail-card">
@@ -57,21 +57,22 @@
         <ul>
           <li>보고서용 상대 링크 구조를 준비했습니다.</li>
           <li>카테고리 인덱스와 상세 페이지 연결을 맞췄습니다.</li>
+          <li>기본 저장소 `main` 브랜치에 HTML 보고서와 로그 파일을 반영했습니다.</li>
           <li>원본 보고서 파일은 현재 미첨부 상태로 확인되었습니다.</li>
         </ul>
       </section>
 
       <section class="detail-card">
         <h2>롤백 또는 주의사항</h2>
-        <p>실제 업로드 전에는 원본 보고서 파일을 지정 경로에 넣고, 대상 Git 저장소 루트에 이 구조를 복사하거나 커밋해야 합니다.</p>
+        <p>원본 보고서 파일이 아직 없어 외부 참조 보고서는 자리만 만든 상태입니다. 압축 파일은 현재 사용 가능한 GitHub 파일 쓰기 경로 특성상 저장소에 같이 넣지 못했습니다.</p>
       </section>
 
       <section class="detail-card">
         <h2>다음 권장 작업</h2>
         <ol>
           <li>원본 보고서 파일을 현재 대화에 다시 첨부합니다.</li>
-          <li>대상 Git 저장소 경로 또는 저장소명을 지정합니다.</li>
-          <li>필요하면 제가 바로 커밋용 정리까지 이어서 맞춥니다.</li>
+          <li>외부 참조 인덱스에 실제 파일 링크를 연결합니다.</li>
+          <li>압축본까지 꼭 저장소에 넣어야 하면 별도 업로드 경로를 이어서 맞춥니다.</li>
         </ol>
       </section>
     </main>
