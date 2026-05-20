@@ -1,0 +1,69 @@
+{
+  "generated_at": "2026-05-20T13:40:00+09:00",
+  "timezone": "Asia/Seoul",
+  "site": {
+    "title": "개발 작업 리포트 허브",
+    "detail_page_template": "pages/report-detail.html?reportId={report_id}",
+    "base_path_mode": "github-pages-project"
+  },
+  "categories": [
+    { "key": "plan", "label": "작업 수행 계획서" },
+    { "key": "test-scenario", "label": "작업 검증 테스트 시나리오" },
+    { "key": "test-result", "label": "작업 검증 결과 보고서" },
+    { "key": "worklog", "label": "작업 내역 보고서" }
+  ],
+  "reports": [
+    {
+      "report_id": "rpt_20260520_001",
+      "category": "plan",
+      "category_label": "작업 수행 계획서",
+      "title": "리포트 허브 구축 작업 수행 계획서",
+      "summary": "GitHub Pages와 Supabase 기반 리포트 허브 구축 계획",
+      "status": "published",
+      "file_path": "reports/plan/2026-05-20-plan-report-hub.md",
+      "detail_page_path": "pages/report-detail.html?reportId=rpt_20260520_001",
+      "created_at": "2026-05-20T09:00:00+09:00",
+      "updated_at": "2026-05-20T09:30:00+09:00",
+      "project_key": "report-hub"
+    },
+    {
+      "report_id": "rpt_20260520_002",
+      "category": "test-scenario",
+      "category_label": "작업 검증 테스트 시나리오",
+      "title": "리포트 허브 검증 테스트 시나리오",
+      "summary": "리포트 허브 메인/상세 화면과 조회 이력 검증 시나리오",
+      "status": "published",
+      "file_path": "reports/test-scenario/2026-05-20-test-scenario-report-hub.md",
+      "detail_page_path": "pages/report-detail.html?reportId=rpt_20260520_002",
+      "created_at": "2026-05-20T10:00:00+09:00",
+      "updated_at": "2026-05-20T10:10:00+09:00",
+      "project_key": "report-hub"
+    },
+    {
+      "report_id": "rpt_20260520_003",
+      "category": "test-result",
+      "category_label": "작업 검증 결과 보고서",
+      "title": "리포트 허브 검증 결과 보고서",
+      "summary": "주요 기능 검증 결과와 보완 필요 항목 정리",
+      "status": "published",
+      "file_path": "reports/test-result/2026-05-20-test-result-report-hub.md",
+      "detail_page_path": "pages/report-detail.html?reportId=rpt_20260520_003",
+      "created_at": "2026-05-20T11:00:00+09:00",
+      "updated_at": "2026-05-20T11:20:00+09:00",
+      "project_key": "report-hub"
+    },
+    {
+      "report_id": "rpt_20260520_004",
+      "category": "worklog",
+      "category_label": "작업 내역 보고서",
+      "title": "리포트 허브 작업 내역 보고서",
+      "summary": "설계, 파일 구조, 샘플 코드 작성 내역 정리",
+      "status": "published",
+      "file_path": "reports/worklog/2026-05-20-worklog-report-hub.md",
+      "detail_page_path": "pages/report-detail.html?reportId=rpt_20260520_004",
+      "created_at": "2026-05-20T12:00:00+09:00",
+      "updated_at": "2026-05-20T12:30:00+09:00",
+      "project_key": "report-hub"
+    }
+  ]
+}
