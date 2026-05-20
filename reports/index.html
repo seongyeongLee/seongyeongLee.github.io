@@ -13,12 +13,12 @@
         <div class="badge-row">
           <span class="badge status-success">최신 상태: 성공</span>
           <span class="badge status-danger">확인 여부: 미확인</span>
-          <span class="badge status-info">기준 시각: 2026-05-19 15:13 KST</span>
+          <span class="badge status-info">기준 시각: 2026-05-20 10:00 KST</span>
         </div>
         <p>
           GitHub Pages에서 읽을 수 있는 검증 보고서, 변경 보고서, 외부 참조 보고서를 모아둔
-          허브입니다. 최신 작업은 Supabase CRUD 2차 검증이며, 실제 테스트 데이터 생성부터
-          upsert, 이벤트 기록, 정리까지 다시 확인했습니다.
+          허브입니다. 이번 추가 묶음은 `agent-overview` 문서가 로컬 파일로 열렸을 때도 끊기지 않도록
+          보강한 재시도 작업과 그에 대한 계획, 검증, 결과, 비교 보고서입니다.
         </p>
       </section>
 
@@ -26,26 +26,68 @@
         <h2>요약 대시보드</h2>
         <div class="grid">
           <div class="metric">
-            <strong>3</strong>
+            <strong>4</strong>
             <span>카테고리</span>
           </div>
           <div class="metric">
-            <strong>2</strong>
-            <span>신규 CRUD 검증 보고서</span>
+            <strong>4</strong>
+            <span>새 retry 보고서</span>
           </div>
           <div class="metric">
             <strong>1</strong>
-            <span>신규 반영 보고서</span>
+            <span>문서 뷰어 수정</span>
           </div>
           <div class="metric">
             <strong>0</strong>
-            <span>이번 검증의 잔여 테스트 row</span>
+            <span>현재 남은 실패 보고서</span>
           </div>
         </div>
       </section>
 
       <section class="panel">
-        <h2>최신 보고서 미리보기</h2>
+        <h2>새로 올라온 보고서</h2>
+        <div class="report-list">
+          <article class="report-card">
+            <div class="report-meta">
+              <span class="badge status-success">성공</span>
+              <span class="badge status-danger">미확인</span>
+              <span class="badge status-info">2026-05-20</span>
+            </div>
+            <h3><a href="./test-results/passed/2026-05-20-agent-overview-local-fallback-test-result.html">agent-overview local fallback test result</a></h3>
+            <p>로컬 파일 환경, 정상 fetch 환경, fetch 실패 대체 흐름, 허브 링크 노출까지 점검한 결과입니다.</p>
+          </article>
+          <article class="report-card">
+            <div class="report-meta">
+              <span class="badge status-success">준비 완료</span>
+              <span class="badge status-danger">미확인</span>
+              <span class="badge status-info">2026-05-20</span>
+            </div>
+            <h3><a href="./change-plans/2026-05-20-agent-overview-local-fallback-change-plan.html">agent-overview local fallback change plan</a></h3>
+            <p>이번 재시도에서 문서 뷰어를 어떻게 보강하고 어떤 보고서를 함께 반영할지 정리한 계획입니다.</p>
+          </article>
+          <article class="report-card">
+            <div class="report-meta">
+              <span class="badge status-success">준비 완료</span>
+              <span class="badge status-danger">미확인</span>
+              <span class="badge status-info">2026-05-20</span>
+            </div>
+            <h3><a href="./test-scenarios/2026-05-20-agent-overview-local-fallback-test-scenario.html">agent-overview local fallback test scenario</a></h3>
+            <p>로컬 파일 fallback, HTTP 로딩, 공지 문구, 허브 링크 노출을 확인하는 검증 시나리오입니다.</p>
+          </article>
+          <article class="report-card">
+            <div class="report-meta">
+              <span class="badge status-success">준비 완료</span>
+              <span class="badge status-danger">미확인</span>
+              <span class="badge status-info">2026-05-20</span>
+            </div>
+            <h3><a href="./diff-analysis-and-change-reports/2026-05-20-agent-overview-local-fallback-diff-analysis-and-change-report.html">agent-overview local fallback diff analysis and change report</a></h3>
+            <p>수정 전의 fetch 실패 상태와 수정 후의 fallback 동작, 허브 연결 추가를 비교한 보고서입니다.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>기존 최신 보고서 미리보기</h2>
         <div class="report-list">
           <article class="report-card">
             <div class="report-meta">
@@ -91,6 +133,10 @@
           <article class="report-card">
             <h3><a href="./external-references/index.html">외부 참조 보고서</a></h3>
             <p>대화 외부에서 전달된 보고서와 첨부 자료의 연결 상태를 확인합니다.</p>
+          </article>
+          <article class="report-card">
+            <h3><a href="./change-plans/2026-05-20-agent-overview-local-fallback-change-plan.html">agent-overview retry report set</a></h3>
+            <p>계획, 테스트 시나리오, 결과, 변경 비교 보고서로 이어지는 이번 재시도 작업 묶음입니다.</p>
           </article>
         </div>
       </section>
