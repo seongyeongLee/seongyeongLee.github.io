@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="루트 구조 동작 점검 체크리스트를 체크박스로 확인하고 다음 단계를 바로 확인할 수 있는 페이지입니다."
+    />
+    <title>루트 구조 점검 체크리스트</title>
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <style>
+      .checklist-layout { max-width: 1120px; margin: 0 auto; padding: 32px 20px 56px; }
+      .checklist-header { margin-bottom: 24px; }
+      .checklist-grid { display: grid; gap: 20px; }
+      .checklist-card { background: #fff; border: 1px solid #dbe2ea; border-radius: 16px; padding: 20px; }
+      .check-item { display: flex; gap: 12px; align-items: flex-start; padding: 10px 0; border-top: 1px solid #eef2f7; }
+      .check-item:first-child { border-top: 0; }
+      .check-item input { margin-top: 3px; }
+      .group-title { margin: 18px 0 8px; font-size: 15px; color: #475569; }
+      .progress-bar { width: 100%; height: 10px; background: #e5e7eb; border-radius: 999px; overflow: hidden; }
+      .progress-bar > div { height: 100%; background: #7c3aed; width: 0%; }
+      .next-step-list { margin: 0; padding-left: 18px; }
+      .toolbar { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
+      .toolbar button { border: 1px solid #dbe2ea; background: white; border-radius: 10px; padding: 10px 14px; cursor: pointer; }
+      .toolbar button.primary { background: #7c3aed; color: white; border-color: #7c3aed; }
+      .muted { color: #64748b; font-size: 14px; }
+    </style>
+  </head>
+  <body>
+    <main class="checklist-layout">
+      <a href="../index.html" class="back-link">← 메인 화면으로 돌아가기</a>
+
+      <section class="checklist-header">
+        <p class="eyebrow">Integrated Agent Design System</p>
+        <h1 id="pageTitle">체크리스트를 불러오는 중입니다.</h1>
+        <p class="subtext">체크한 항목은 브라우저에 저장되며, 진행 상태에 맞는 다음 단계를 바로 확인할 수 있습니다.</p>
+      </section>
+
+      <section class="checklist-card">
+        <h2>보고서 4종 바로가기</h2>
+        <div id="checklistReportLinks" class="summary-grid">
+          <div class="report-item">보고서 바로가기 정보를 불러오는 중입니다.</div>
+        </div>
+      </section>
+
+      <section class="checklist-card">
+        <h2>전체 진행 상태</h2>
+        <div class="progress-bar" aria-label="전체 진행 상태">
+          <div id="overallProgressBar"></div>
+        </div>
+        <p id="overallProgressText" class="muted">진행 상태를 계산하는 중입니다.</p>
+        <div class="toolbar">
+          <button id="expandAllButton">모든 섹션 펼치기</button>
+          <button id="collapseAllButton">모든 섹션 접기</button>
+          <button id="resetChecklistButton">체크 초기화</button>
+          <button id="openNextStepButton" class="primary">다음 단계 보기</button>
+        </div>
+      </section>
+
+      <section class="checklist-card">
+        <h2>다음 단계 제안</h2>
+        <p id="nextStepSummary" class="muted">체크된 항목을 기준으로 다음 단계가 여기에 표시됩니다.</p>
+        <ul id="nextStepList" class="next-step-list"></ul>
+      </section>
+
+      <section id="checklistSections" class="checklist-grid"></section>
+    </main>
+
+    <script src="../assets/js/config.js"></script>
+    <script src="../assets/js/root-structure-validation-checklist.js"></script>
+  </body>
+</html>
