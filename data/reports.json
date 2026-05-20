@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-20T13:40:00+09:00",
+  "generated_at": "2026-05-20T15:40:00+09:00",
   "timezone": "Asia/Seoul",
   "site": {
     "title": "개발 작업 리포트 허브",
@@ -116,6 +116,58 @@
       "created_at": "2026-05-20T13:40:00+09:00",
       "updated_at": "2026-05-20T13:40:00+09:00",
       "project_key": "report-hub-root-base-path-fix"
+    },
+    {
+      "report_id": "rpt_20260520_009",
+      "category": "plan",
+      "category_label": "작업 수행 계획서",
+      "title": "BASE_PATH 수정 및 시스템 로그 보강 계획서",
+      "summary": "루트 배포 경로 수정과 Supabase system_logs 도입 계획 정리",
+      "status": "published",
+      "file_path": "reports/plan/2026-05-20-plan-base-path-fix-and-system-logging.md",
+      "detail_page_path": "pages/report-detail.html?reportId=rpt_20260520_009",
+      "created_at": "2026-05-20T15:10:00+09:00",
+      "updated_at": "2026-05-20T15:10:00+09:00",
+      "project_key": "report-hub-base-path-system-logging"
+    },
+    {
+      "report_id": "rpt_20260520_010",
+      "category": "test-scenario",
+      "category_label": "작업 검증 테스트 시나리오",
+      "title": "BASE_PATH 수정 및 시스템 로그 검증 시나리오",
+      "summary": "BASE_PATH 수정과 system_logs 기록 검증 시나리오",
+      "status": "published",
+      "file_path": "reports/test-scenario/2026-05-20-test-scenario-base-path-fix-and-system-logging.md",
+      "detail_page_path": "pages/report-detail.html?reportId=rpt_20260520_010",
+      "created_at": "2026-05-20T15:20:00+09:00",
+      "updated_at": "2026-05-20T15:20:00+09:00",
+      "project_key": "report-hub-base-path-system-logging"
+    },
+    {
+      "report_id": "rpt_20260520_011",
+      "category": "test-result",
+      "category_label": "작업 검증 결과 보고서",
+      "title": "BASE_PATH 수정 및 시스템 로그 구조 검증 결과",
+      "summary": "로딩 실패 원인과 system_logs 기반 추적 구조 확인",
+      "status": "published",
+      "file_path": "reports/test-result/2026-05-20-test-result-base-path-fix-and-system-logging.md",
+      "detail_page_path": "pages/report-detail.html?reportId=rpt_20260520_011",
+      "created_at": "2026-05-20T15:30:00+09:00",
+      "updated_at": "2026-05-20T15:30:00+09:00",
+      "project_key": "report-hub-base-path-system-logging"
+    },
+    {
+      "report_id": "rpt_20260520_012",
+      "category": "worklog",
+      "category_label": "작업 내역 보고서",
+      "title": "BASE_PATH 수정 전 원인 분석 작업 내역",
+      "summary": "수정 전 원인 분석과 로그 보강 준비 작업 기록",
+      "status": "published",
+      "file_path": "reports/worklog/2026-05-20-worklog-base-path-fix-and-system-logging.md",
+      "detail_page_path": "pages/report-detail.html?reportId=rpt_20260520_012",
+      "created_at": "2026-05-20T15:40:00+09:00",
+      "updated_at": "2026-05-20T15:40:00+09:00",
+      "project_key": "report-hub-base-path-system-logging"
     }
   ]
 }
