@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="개발 작업 리포트 허브에서 보고서, 조회 상태, 배포 기준 정보를 확인합니다."
+    />
+    <title>개발 작업 리포트 허브</title>
+    <link rel="stylesheet" href="./assets/css/main.css" />
+  </head>
+  <body>
+    <noscript>
+      <div class="report-item" style="margin: 24px;">
+        자바스크립트가 비활성화되어 있어 리포트 허브를 정상적으로 사용할 수 없습니다.
+      </div>
+    </noscript>
+
+    <header class="page-header">
+      <div>
+        <p class="eyebrow">Integrated Agent Design System</p>
+        <h1>개발 작업 리포트 허브</h1>
+        <p class="subtext">보고서, 조회 상태, 배포 기준 정보를 한 화면에서 확인합니다.</p>
+      </div>
+      <div class="header-status-group">
+        <div id="lastUpdated" class="last-updated">마지막 갱신 정보를 불러오는 중입니다.</div>
+        <div id="connectionStatus" class="last-updated">연결 상태를 확인하는 중입니다.</div>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section aria-labelledby="system-status-heading">
+        <div class="section-head">
+          <h2 id="system-status-heading">시스템 상태</h2>
+        </div>
+        <div id="systemStatus" class="report-item">
+          초기 상태를 확인하는 중입니다.
+        </div>
+      </section>
+
+      <section aria-labelledby="quick-report-links-heading">
+        <div class="section-head">
+          <h2 id="quick-report-links-heading">보고서 4종 바로가기</h2>
+        </div>
+        <div id="quickReportLinks" class="summary-grid">
+          <div class="report-item">보고서 바로가기 정보를 불러오는 중입니다.</div>
+        </div>
+      </section>
+
+      <section aria-labelledby="category-summary-heading">
+        <h2 id="category-summary-heading">카테고리 요약</h2>
+        <div id="categorySummary" class="summary-grid">
+          <div class="report-item">카테고리 요약을 불러오는 중입니다.</div>
+        </div>
+      </section>
+
+      <section aria-labelledby="report-list-heading">
+        <div class="section-head">
+          <h2 id="report-list-heading">보고서 목록</h2>
+          <div id="categoryTabs" class="tabs" aria-label="보고서 카테고리 선택"></div>
+        </div>
+        <div id="reportList" class="report-list">
+          <div class="report-item">보고서 목록을 불러오는 중입니다.</div>
+        </div>
+      </section>
+    </main>
+
+    <script src="./assets/js/config.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="./assets/js/supabase-client.js"></script>
+    <script src="./assets/js/api.js"></script>
+    <script src="./assets/js/main.js"></script>
+  </body>
+</html>
