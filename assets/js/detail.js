@@ -1,17 +1,37 @@
 function getDetailSupabaseStatusSummary() {
-  const configured = typeof isSupabaseConfigured === 'function' && isSupabaseConfigured();
-
-  if (configured) {
-    return {
-      enabled: true,
-      message: 'Supabase 조회 및 확인 상태 저장이 활성화되어 있습니다.'
-    };
+  if (typeof getSupabaseConnectionState === 'function') {
+    return getSupabaseConnectionState();
   }
 
   return {
     enabled: false,
-    message: 'Supabase 연결 정보가 없어 상세 화면은 로컬 기준으로 표시됩니다.'
+    message: 'Supabase 연결 상태 확인 함수를 찾을 수 없습니다.'
   };
+}
+
+function buildDetailLogContext(extra = {}) {
+  return {
+    source: 'client',
+    page: 'report-detail',
+    pathname: window.location.pathname,
+    basePath: getBasePath() || '/',
+    ...extra
+  };
+}
+
+async function writeDetailLogSafely(logLevel, message, context = {}) {
+  if (typeof writeSystemLog !== 'function') return;
+
+  try {
+    await writeSystemLog(
+      'report_detail_page',
+      logLevel,
+      message,
+      buildDetailLogContext(context)
+    );
+  } catch (error) {
+    console.error('Failed to write detail page log', error);
+  }
 }
 
 function renderDetailNotFound() {
@@ -89,8 +109,11 @@ async function bindAcknowledgeAction(reportId, viewerId, connectionState) {
 }
 
 async function initDetail() {
+  await writeDetailLogSafely('DEBUG', '보고서 상세 화면 초기화를 시작했습니다.');
+
   const reportId = getQueryParam('reportId');
   if (!reportId) {
+    await writeDetailLogSafely('WARN', '보고서 상세 화면에 reportId가 없습니다.');
     renderDetailNotFound();
     return;
   }
@@ -104,6 +127,10 @@ async function initDetail() {
   const report = reports.find((item) => item.report_id === reportId);
 
   if (!report) {
+    await writeDetailLogSafely('ERROR', '요청한 보고서를 찾을 수 없습니다.', {
+      reportId,
+      eventName: 'report_detail_not_found'
+    });
     renderDetailNotFound();
     return;
   }
@@ -123,6 +150,10 @@ async function initDetail() {
   });
 
   await bindAcknowledgeAction(report.report_id, viewer.viewerId, connectionState);
+  await writeDetailLogSafely('INFO', '보고서 상세 화면 초기화를 완료했습니다.', {
+    reportId: report.report_id,
+    projectKey: report.project_key ?? null
+  });
 }
 
 initDetail().catch((error) => {
@@ -138,4 +169,9 @@ initDetail().catch((error) => {
   if (detailContent) {
     detailContent.innerHTML = '<p>상세 내용을 불러오지 못했습니다.</p>';
   }
+
+  writeDetailLogSafely('ERROR', '보고서 상세 화면 초기화 중 예외가 발생했습니다.', {
+    eventName: 'report_detail_initialization_failed',
+    errorMessage: error?.message ?? String(error)
+  });
 });

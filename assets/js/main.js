@@ -15,18 +15,15 @@ function getBasePathSummary() {
 }
 
 function getSupabaseStatusSummary() {
-  const configured = typeof isSupabaseConfigured === 'function' && isSupabaseConfigured();
-
-  if (configured) {
-    return {
-      enabled: true,
-      message: 'Supabase 확인 이력 연동이 활성화되어 있습니다.'
-    };
+  if (typeof getSupabaseConnectionState === 'function') {
+    return getSupabaseConnectionState();
   }
 
   return {
     enabled: false,
-    message: 'Supabase 연결 정보가 없어 로컬 기준으로 화면을 표시합니다.'
+    mode: 'unknown',
+    severity: 'WARN',
+    message: 'Supabase 연결 상태 확인 함수를 찾을 수 없습니다.'
   };
 }
 
@@ -100,16 +97,36 @@ function renderSystemStatus(data, viewer) {
 
   const supabaseState = getSupabaseStatusSummary();
   const connectionText = supabaseState.enabled ? 'Supabase 연동 활성' : 'Supabase 연동 미설정';
+  const healthText = supabaseState.enabled ? '정상' : '제한 동작';
+  const badgeClass = supabaseState.enabled ? 'info' : 'warn';
 
   target.innerHTML = `
-    <strong>배포 기준 정보</strong>
-    <div class="report-meta">Base path: ${getBasePathSummary()}</div>
-    <div class="report-meta">사용자 식별 방식: ${viewer.source}</div>
-    <div class="report-meta">연결 상태: ${connectionText}</div>
-    <div class="report-meta">데이터 생성 시각: ${formatKst(data.generated_at)}</div>
+    <div class="status-stack">
+      <div class="status-line">
+        <strong>운영 상태</strong>
+        <span class="status-badge ${badgeClass}">${healthText}</span>
+      </div>
+      <div class="report-meta">Base path: ${getBasePathSummary()}</div>
+      <div class="report-meta">사용자 식별 방식: ${viewer.source}</div>
+      <div class="report-meta">연결 상태: ${connectionText}</div>
+      <div class="report-meta">DB 로그 저장: ${supabaseState.enabled ? '가능' : '불가'}</div>
+      <div class="report-meta">데이터 생성 시각: ${formatKst(data.generated_at)}</div>
+      <div id="systemLogHealth" class="report-meta">시스템 로그 요약을 확인하는 중입니다.</div>
+      <a class="report-link" href="${buildAppPath('/pages/system-logs.html')}">시스템 로그 관리로 이동</a>
+    </div>
   `;
 
   connectionStatus.textContent = supabaseState.message;
+}
+
+async function renderSystemLogHealthSummary() {
+  const target = document.getElementById('systemLogHealth');
+  if (!target || typeof fetchSystemLogSummary !== 'function') return;
+
+  const result = await fetchSystemLogSummary();
+  const summary = result.summary ?? {};
+  const storageLabel = result.storageMode === 'supabase' ? 'Supabase DB' : '로컬 대체 로그';
+  target.textContent = `로그 저장소: ${storageLabel} · 미해결 ERROR 이상 ${summary.unresolvedDefectCount ?? 0}건 · 미확인 ${summary.unacknowledgedDefectCount ?? 0}건`;
 }
 
 function renderQuickReportLinks(data) {
@@ -217,6 +234,14 @@ async function init() {
   }
 
   renderSystemStatus(data, viewer);
+
+  if (!getSupabaseStatusSummary().enabled) {
+    await writeClientLogSafely('warn', 'Supabase is not configured; DB-backed status features are unavailable', {
+      eventName: 'supabase_unconfigured'
+    });
+  }
+
+  await renderSystemLogHealthSummary();
   renderQuickReportLinks(data);
 
   const cards = buildCategorySummary(data);
